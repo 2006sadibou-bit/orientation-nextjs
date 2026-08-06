@@ -1,6 +1,14 @@
 "use client"
 import { useState } from "react"
 
+type Resultat = {
+  mention: string
+  moyenne: number
+  filieres: string[]
+  concours: string[]
+  avertissement: boolean
+}
+
 export default function Test() {
   const [step, setStep] = useState("accueil")
   const [bacSerie, setBacSerie] = useState("")
@@ -16,21 +24,21 @@ export default function Test() {
 
   const [moyenneBac, setMoyenneBac] = useState("")
 
-  const [resultat, setResultat] = useState(null)
+  const [resultat, setResultat] = useState<Resultat | null>(null)
 
   const estScientifique = bacSerie === "S1" || bacSerie === "S2" || bacSerie === "S3"
   const estLitteraire = bacSerie === "L1" || bacSerie === "L2"
   const estGestion = bacSerie === "G"
   const estTechnique = bacSerie === "T"
 
-  function choisirSerie(s) {
+  function choisirSerie(s: string) {
     setBacSerie(s)
     if (s === "S1" || s === "S2" || s === "S3") setStep("notesSciences")
     else if (s === "L1" || s === "L2") setStep("notesLettres")
     else setStep("moyenne")
   }
 
-  function calculerMention(moyenne) {
+  function calculerMention(moyenne: number) {
     if (moyenne < 9.5) return "Insuffisant"
     if (moyenne < 12) return "Passable"
     if (moyenne < 14) return "Assez Bien"
@@ -39,7 +47,7 @@ export default function Test() {
     return "Excellent"
   }
 
-  function ajouterSansDoublon(liste, valeur) {
+  function ajouterSansDoublon(liste: string[], valeur: string) {
     if (liste.indexOf(valeur) === -1) liste.push(valeur)
   }
 
@@ -47,8 +55,8 @@ export default function Test() {
     const moyenne = parseFloat(moyenneBac)
     const mention = calculerMention(moyenne)
 
-    let filieresRecommandees = []
-    let concours = []
+    let filieresRecommandees: string[] = []
+    let concours: string[] = []
     let avertissement = false
 
     if (estScientifique) {
@@ -148,7 +156,7 @@ export default function Test() {
       ajouterSansDoublon(filieresRecommandees, "Telecommunications et Electronique")
       ajouterSansDoublon(filieresRecommandees, "Energies renouvelables")
       ajouterSansDoublon(filieresRecommandees, "Technologies agro-alimentaires")
-      ajouterSansDoublon(concours, "Polytech diamniadio)")
+      ajouterSansDoublon(concours, "Polytech diamniadio")
     }
 
     if (mention === "Passable") {
