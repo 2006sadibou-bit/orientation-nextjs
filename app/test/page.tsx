@@ -77,7 +77,7 @@ function evaluerNiveau(moyenne: number): { niveau: NiveauAdmission; mention: str
   if (moyenne >= 14) return { niveau: "bien", mention: "Bien" }
   if (moyenne >= 12) return { niveau: "assezBien", mention: "Assez Bien" }
   if (moyenne >= 9.5) return { niveau: "passable", mention: "Passable" }
-  if (moyenne >= 8) return { niveau: "rattrapage", mention: "Second groupe (rattrapage)" }
+  if (moyenne >= 8) return { niveau: "rattrapages", mention: "Second groupe (rattrapage)" }
   return { niveau: "nonAdmis", mention: "Non admis" }
 }
 
@@ -304,7 +304,7 @@ export default function OrientationPostBac() {
       ajouterSansDoublon(concours, "IPSL")
     }
 
-    if (niveau === "passable" || niveau === "rattrapage") {
+    if (niveau === "passable" || niveau === "rattrapages") {
       ajouterSansDoublon(concours, "CREM")
       ajouterSansDoublon(concours, "FASTEF")
       ajouterSansDoublon(concours, "ENA")
@@ -482,7 +482,7 @@ function ChampNote(props: { label: string; value: string; onChange: (v: string) 
 }
 
 function ResultatVue({ resultat, onRecommencer }: { resultat: Resultat; onRecommencer: () => void }) {
-  const admis = resultat.niveau !== "nonAdmis" && resultat.niveau !== "rattrapage"
+  const admis = resultat.niveau !== "nonAdmis" && resultat.niveau !== "rattrapages"
 
   return (
     <div>
@@ -495,7 +495,7 @@ function ResultatVue({ resultat, onRecommencer }: { resultat: Resultat; onRecomm
         </div>
       )}
 
-      {resultat.niveau === "rattrapage" && (
+      {resultat.niveau === "rattrapages" && (
         <div className="bg-[#FDF3E3] border border-[#E4A93D]/40 rounded-2xl p-5 mb-6">
           <p className="font-serif font-semibold text-lg text-[#7A5417]">Tu es dans la zone du second groupe</p>
           <p className="text-[#7A5417]/85 text-sm mt-2 leading-relaxed">
