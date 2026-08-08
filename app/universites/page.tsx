@@ -25,9 +25,6 @@ export default function Universites() {
         <nav className="space-x-8 text-sm font-medium text-gray-700">
           <a href="/filieres" className="hover:text-blue-900">Filières</a>
           <a href="/universites" className="hover:text-blue-900">Universités</a>
-          <a href="/test" className="bg-blue-900 text-white px-5 py-2 rounded-full hover:bg-blue-800">
-            Passer le test
-          </a>
         </nav>
       </header>
 
