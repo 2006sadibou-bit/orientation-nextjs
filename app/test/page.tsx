@@ -48,7 +48,7 @@ const CONCOURS_INFO: Record<string, string> = {
   "ISFAR": "Institut Superieur de Formation Agricole et Rurale (Bambey)",
   "ENSA": "Ecole Nationale Superieure d'Agriculture (Thies)",
   "ENSMG": "Ecole Nationale Superieure des Mines et de la Geologie",
-  "Polytech Diamniadio": "Universite Amadou Mahtar Mbow - filieres ingenierie",
+  "Polytech Diamniadio": "Universite Amadou Mahtar Mbow ",
   "CREM": "Concours de Recrutement des Eleves-Maitres (enseignement primaire)",
   "FASTEF": "Faculte des Sciences et Technologies de l'Education et de la Formation",
   "ENA": "Ecole Nationale d'Administration",
@@ -229,13 +229,15 @@ export default function OrientationPostBac() {
       } else {
         ajouterSansDoublon(filieres, "Agronomie")
         ajouterSansDoublon(filieres, "Aquaculture")
-        ajouterSansDoublon(filieres, "Technicien superieur (BTS)")
+        ajouterSansDoublon(filieres, "Mathematiques - Physique - Informatique (MPI)")
+        ajouterSansDoublon(filieres, "FASEG - Sciences Economiques et de Gestion")
       }
 
       if (moyenne >= 10.4) {
         ajouterSansDoublon(concours, "Polytech Diamniadio")
         ajouterSansDoublon(concours, "ISFAR")
         ajouterSansDoublon(concours, "ESEA")
+        ajouterSansDoublon(concours, "ESP")
         ajouterSansDoublon(concours, "Ufr sciences de l'ingénieur")
       }
     }
@@ -251,9 +253,10 @@ export default function OrientationPostBac() {
         ajouterSansDoublon(filieres, "Droit")
         ajouterSansDoublon(filieres, "Sciences politiques")
         ajouterSansDoublon(filieres, "Lettres modernes")
-        ajouterSansDoublon(filieres, "Anglais")
+        ajouterSansDoublon(filieres, "Histoire")
+        ajouterSansDoublon(filieres, "Geographie")
         if (bacSerie === "L2") {
-          ajouterSansDoublon(concours, "ESP")
+          
           ajouterSansDoublon(concours, "Polytech Diamniadio")
           ajouterSansDoublon(concours, "FASTEF")
           ajouterSansDoublon(concours, "CREM")
@@ -271,13 +274,13 @@ export default function OrientationPostBac() {
       } else {
         ajouterSansDoublon(filieres, "Administration Economique et Sociale (AES)")
         ajouterSansDoublon(filieres, "Management du tourisme et de l'hotellerie")
+        ajouterSansDoublon(filieres, "FASEG - Sciences Economiques et de Gestion")
       }
 
-      if (moyenne >= 10.2) {
+      if (moyenne >= 10.5) {
         ajouterSansDoublon(concours, "Polytech Diamniadio")
-        ajouterSansDoublon(concours, "ESP")
-
-
+        ajouterSansDoublon(concours, "FASTEF")
+        ajouterSansDoublon(concours, "CREM")
       }
     }
 
@@ -308,7 +311,6 @@ export default function OrientationPostBac() {
       ajouterSansDoublon(concours, "CREM")
       ajouterSansDoublon(concours, "FASTEF")
       ajouterSansDoublon(concours, "ENA")
-      ajouterSansDoublon(concours, "ESP")
       ajouterSansDoublon(concours, "Polytech Diamniadio")
     }
 
