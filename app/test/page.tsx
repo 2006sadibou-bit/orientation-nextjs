@@ -252,6 +252,7 @@ export default function OrientationPostBac() {
       if (moyenneLettres >= 14) {
         ajouterSansDoublon(filieres, "Droit")
         ajouterSansDoublon(filieres, "Sciences politiques")
+        ajouterSansDoublon(filieres, "Sciences Juridiques")
         ajouterSansDoublon(filieres, "Lettres modernes")
         ajouterSansDoublon(filieres, "Histoire")
         ajouterSansDoublon(filieres, "Geographie")
